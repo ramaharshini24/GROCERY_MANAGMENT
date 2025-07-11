@@ -1,0 +1,28 @@
+.page11 {
+    border-style: solid;
+    border-color: green;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.login {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.page11backlogin {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://www.buxtonco.com/images/blog/_resize/marketing-to-attract-grocery-stores_resize_b45a1fb8f9f0ff146ef27e828cb662f6.jpg");
+    background-size: cover;
+}

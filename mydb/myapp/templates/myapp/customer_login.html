@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Customer Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/customer_login.css' %}">
+    {% if error_message %}
+    <div style="color: red;">{{ error_message }}</div>
+{% endif %}
+</head>
+<body>
+    <div class="d-flex flex-column justify-content-center align-items-center page11backcustomer">
+        <h1 class="login">CUSTOMER LOGIN</h1>
+
+
+        <form method="POST" action="{% url 'customer_login' %}">
+            {% csrf_token %}
+            <div class="d-flex flex-column justify-content-center">
+                <label for="userid" class="page21">User ID:</label>
+                <input type="text" id="userid" name="userid" required placeholder="Enter your user ID">
+            </div>
+
+            <div class="d-flex flex-row justify-content-center">
+                <button class="button" type="submit">Login</button>
+            </div>
+        </form>
+
+        <!-- Buttons Section -->
+        <div class="d-flex flex-row justify-content-center">
+            <a href="{% url 'customer_signup' %}" class="page11">Create New</a>
+            <a href="{% url 'index' %}" class="page11">Back</a>
+        </div>
+    </div>
+</body>
+</html>
+

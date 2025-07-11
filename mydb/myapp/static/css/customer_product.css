@@ -1,0 +1,19 @@
+.image {
+    height: 30vh;
+    width: 30vw;
+}
+
+.product {
+    padding: 20px;
+    margin: 10px;
+    background-color: lightblue;
+    border-radius: 20px;
+}
+
+.product_details {
+    padding: 20px;
+
+}
+.lastmin{
+    background-image:url("https://wallpaperaccess.com/full/2338290.jpg");
+}

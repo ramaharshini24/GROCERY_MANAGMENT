@@ -1,0 +1,49 @@
+.page11 {
+    border-style: solid;
+    border-color: green;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.login {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+
+.page11backcustomer {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://media.istockphoto.com/id/1424627082/photo/saleswoman-assisting-male-shopper-in-supermarket.jpg?s=612x612&w=0&k=20&c=X9VFD00okeoMw3VR6CwDx9Ubj-jzzarFAklFOf06ppA=");
+    background-size: cover;
+}
+
+
+.page21 {
+    background-color: transparent;
+    padding: 5px;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+
+    color: yellow;
+}
+
+.button {
+    margin: 100px;
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100px;
+}

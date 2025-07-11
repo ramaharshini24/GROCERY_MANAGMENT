@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Address</title>
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Add New Address</h1>
+        <form method="POST" action="{% url 'add_address' %}">
+            {% csrf_token %}
+            <div>
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" required>
+            </div>
+            <div>
+                <label for="house">House No:</label>
+                <input type="text" id="house" name="house" required>
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

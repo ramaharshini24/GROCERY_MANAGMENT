@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            width: 80px;
+            padding: 5px;
+        }
+        .button {
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container"  style="background-color:lightpink">
+    <h1>Seller Home</h1>
+
+    <!-- Product Stock Update Section -->
+    <h2>Your Products</h2>
+    <form method="POST" action="{% url 'update_stock' %}">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.product_name }}</td>
+                    <td>
+                        <input type="number" name="stock_{{ product.product_id }}" value="{{ product.stock }}" required>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="actions">
+            <button type="submit" class="button">Update Stocks</button>
+        </div>
+    </form>
+
+    <!-- Additional Actions -->
+    <h2>Actions</h2>
+    <ul>
+        <li><a href="{% url 'add_seller_phone_number' %}">Add Phone Number</a></li>
+        <li><a href="{% url 'add_product' %}">Add Address</a></li>
+        <li><a href="{% url 'seller_details' %}">View Your Details</a></li>
+    </ul>
+
+    <div class="actions">
+        <a href="{% url 'choose_delivery_partner' %}">
+            <button class="button">Choose Delivery Partner</button>
+        </a>
+        <a href="{% url 'seller_login' %}">
+            <button type="button">Back</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

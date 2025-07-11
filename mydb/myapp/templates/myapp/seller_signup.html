@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="personalseller" style="background-color: yellow ">
+        <h1>Seller Signup</h1>
+
+        <form method="POST" action="{% url 'seller_signup' %}">
+            {% csrf_token %}
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="number">Phone Number:</label>
+                <input type="text" id="number" name="number" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <a href="{% url 'seller_login' %}">
+            <button type="button">Back</button>
+        </a>
+        </form>
+    </div>
+</body>
+</html>

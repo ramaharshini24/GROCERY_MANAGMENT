@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Phone Number</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Phone Number</h1>
+        <form method="POST" action="{% url 'add_cust_phone_number' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="phone_number">Enter Phone Number:</label>
+                <input type="tel" class="form-control" id="phone_number" name="phone_number" pattern="[0-9]{10}" required>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

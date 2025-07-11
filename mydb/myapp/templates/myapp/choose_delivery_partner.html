@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Delivery Partner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .button {
+            padding: 8px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Choose Your Delivery Partner</h1>
+
+    <form method="POST" action="{% url 'choose_delivery_partner' %}">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Partner Name</th>
+                    <th>Partner ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partner in delivery_partners %}
+                <tr>
+                    <td>{{ partner.name }}</td>
+                    <td>{{ partner.delivery_partner_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="actions">
+            <h3>Select a Delivery Partner:</h3>
+            <select name="delivery_partner_id" required>
+                <option value="" disabled selected>Select Partner</option>
+                {% for partner in delivery_partners %}
+                <option value="{{ partner.delivery_partner_id }}">{{ partner.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="actions">
+            <button type="submit" class="button">Confirm Partner</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

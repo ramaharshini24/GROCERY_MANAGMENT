@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/customer_product.css' %}">
+    <title>Customer Products</title>
+</head>
+<body>
+<div class="lastmin">
+{% if success_message %}
+    <div style="color: green; font-size: 30px; font-weight: bold">{{ success_message }}</div>
+{% endif %}
+
+<!-- Display error message if available -->
+{% if error_message %}
+    <div style="color: red;">{{ error_message }}</div>
+{% endif %}
+    <h1>Available Products</h1>
+
+    {% if products %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th>Stock</th>
+                    <th>Rating</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Loop over all products and display them -->
+                {% for product in products %}
+
+                <tr>
+
+                    <td>{{ product.product_name }}</td>
+
+                    <td>{{ product.stock }}</td>
+                    <td>{{ product.rating }}</td>
+                    <td>
+                        <!-- Form to place order for each product -->
+                        <form method="POST" action="{% url 'place_order' product.product_id %}">
+    {% csrf_token %}
+    <input type="hidden" name="action_type" value="order">
+    <input type="number" name="quantity" value="0" min="0" required>
+    <button type="submit">Place Order</button>
+</form>
+
+<form method="POST" action="{% url 'place_order' product.product_id %}">
+    {% csrf_token %}
+    <input type="hidden" name="action_type" value="rating">
+    <input type="number" name="rating" value="0" min="0" step="0.01" max = "5" required>
+    <button type="submit">Give Rating</button>
+</form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endif %}
+<h2>Manage My Details</h2>
+    <div>
+        <a href="{% url 'add_cust_phone_number' %}">
+            <button type="button">Add Phone Number</button>
+        </a>
+
+        <a href="{% url 'add_address' %}">
+            <button type="button">Add Address</button>
+        </a>
+
+        <a href="{% url 'my_details' %}">
+            <button type="button">My Details</button>
+        </a>
+
+        <a href="{% url 'customer_login' %}">
+            <button type="button">Back</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

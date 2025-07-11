@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Details</title>
+</head>
+<body>
+<h1>Customer Details</h1>
+
+<p><strong>Name:</strong> {{ customer.1 }}</p>
+<p><strong>Customer ID:</strong> {{ customer.0 }}</p> <!-- Assuming email is the third column -->
+
+<h2>Phone Numbers</h2>
+<ul>
+    {% for phone in phone_numbers %}
+        <li>{{ phone.1 }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Addresses</h2>
+<ul>
+    {% for address in addresses %}
+        <li>Street:{{ address.1 }},House Number: {{ address.2 }}, City: {{ address.3 }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

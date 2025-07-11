@@ -1,0 +1,47 @@
+.page11backseller {
+    height: 90vh;
+    width: 90vw;
+    background-image: url("https://media.istockphoto.com/id/1461540763/photo/a-successful-seller-is-standing-at-supermarket-with-arms-crossed-and-smiling-at-the-camera.jpg?s=612x612&w=0&k=20&c=rlBT0EqViF-mXghxffqm0kOxNwaZCsYJLskkgeRGCMA=");
+    background-size: cover;
+}
+
+.login {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.page21 {
+    background-color: transparent;
+    padding: 5px;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+
+    color: yellow;
+}
+
+.button {
+    margin: 100px;
+    margin-top: 5px;
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100px;
+}
+
+.page11 {
+    border-style: solid;
+    border-color: green;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px;
+    margin: 10px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
+    font-weight: 500;
+    font-size: 20px;
+}
